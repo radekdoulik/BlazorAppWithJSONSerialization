@@ -1,5 +1,7 @@
-﻿@using System.Text;
+﻿@using BlazorAppWithJSONSerialization;
+@using System.Text;
 @using System.Text.Json;
+@using System.Text.Json.Serialization;
 @using System.Text.RegularExpressions;
 @page "/fetchdata"
 @inject HttpClient Http
@@ -49,23 +51,12 @@ else
         forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
     }
 
-    public class WeatherForecast
-    {
-        public DateTime Date { get; set; }
-
-        public int TemperatureC { get; set; }
-
-        public string? Summary { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-    }
-
     private string codeLines = "";
 
     private void SerializeData()
     {
         StringBuilder bc = new("<div class=\"serialized-code\"><code>");
-        var serialized = JsonSerializer.Serialize(forecasts);
+        var serialized = JsonSerializer.Serialize(forecasts, WeatherForecastJSContext.Default.WeatherForecastArray);
         bool first = true;
         foreach (var line in Regex.Split(serialized, "\n\r|\n|\r"))
         {
