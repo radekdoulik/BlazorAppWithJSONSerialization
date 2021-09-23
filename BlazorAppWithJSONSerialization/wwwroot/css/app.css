@@ -22,6 +22,17 @@ a, .btn-link {
     padding-top: 1.1rem;
 }
 
+.serialized-code {
+    background-color: #eee;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+    .serialized-code code {
+        color: black;
+    }
+
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }
