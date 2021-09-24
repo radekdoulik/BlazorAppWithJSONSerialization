@@ -1,0 +1,53 @@
+﻿@page "/csharp10"
+
+<PageTitle>C# 10</PageTitle>
+
+<h1>C# 10 features</h1>
+<h2>Structs parameterless constructors</h2>
+<table class="table">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Output</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td><code>default(Continent)</code></td>
+                    <td>@(default(Continent))</td>
+                </tr>
+                <tr>
+                    <td><code>new Continent()</code></td>
+                    <td>@(new Continent())</td>
+                </tr>
+                <tr>
+                    <td><code>new Continent("Europe", 10180000)</code></td>
+                    <td>@(new Continent("Europe", 10180000))</td>
+                </tr>
+        </tbody>
+    </table>
+
+@code {
+    struct Continent
+    {
+        public Continent()
+        {
+            Name = "<Unset>";
+            Area = -1;
+        }
+
+        public Continent(string name, int area)
+        {
+            Name = name;
+            Area = area;
+        }
+
+        string Name;
+        int Area;
+
+        public override string ToString()
+        {
+            return $"Continent name: '{Name}' area: {Area} km2";
+        }
+    }
+}
