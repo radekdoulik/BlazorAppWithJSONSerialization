@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+﻿//using System.Text.Json.Serialization;
 
 namespace BlazorAppWithJSONSerialization
 {
@@ -13,8 +13,8 @@ namespace BlazorAppWithJSONSerialization
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
     }
 
-    [JsonSerializable(typeof(WeatherForecast[]))]
+    /* [JsonSerializable(typeof(WeatherForecast[]))]
     internal partial class WeatherForecastJSContext : JsonSerializerContext
     {
-    }
+    } */
 }

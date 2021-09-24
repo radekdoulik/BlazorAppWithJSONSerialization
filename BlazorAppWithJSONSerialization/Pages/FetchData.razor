@@ -56,7 +56,7 @@ else
     private void SerializeData()
     {
         StringBuilder bc = new("<div class=\"serialized-code\"><code>");
-        var serialized = JsonSerializer.Serialize(forecasts, WeatherForecastJSContext.Default.WeatherForecastArray);
+        var serialized = JsonSerializer.Serialize(forecasts);
         bool first = true;
         foreach (var line in Regex.Split(serialized, "\n\r|\n|\r"))
         {
