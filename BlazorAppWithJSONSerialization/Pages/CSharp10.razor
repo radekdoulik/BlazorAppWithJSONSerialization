@@ -3,7 +3,31 @@
 <PageTitle>C# 10</PageTitle>
 
 <h1>C# 10 features</h1>
-<h2>Structs parameterless constructors</h2>
+<h3>Structs parameterless constructors</h3>
+<code class="code-pre">
+    struct Continent
+    {
+        public Continent()
+        {
+            Name = "&lt;Unset&gt;";
+            Area = -1;
+        }
+
+        public Continent(string name, int area)
+        {
+            Name = name;
+            Area = area;
+        }
+
+        string Name;
+        int Area;
+
+        public override string ToString()
+        {
+            return $"Continent name: '{Name}' area: {Area:N0} km2";
+        }
+    }
+</code>
 <table class="table">
         <thead>
             <tr>
@@ -47,7 +71,7 @@
 
         public override string ToString()
         {
-            return $"Continent name: '{Name}' area: {Area} km2";
+            return $"Continent name: '{Name}' area: {Area:N0} km2";
         }
     }
 }
